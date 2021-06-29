@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Books.API
@@ -13,6 +14,10 @@ namespace Books.API
     {
         public static void Main(string[] args)
         {
+            //asiganando el maximo de nucleos que usara la api
+            ThreadPool.SetMinThreads(Environment.ProcessorCount, Environment.ProcessorCount);
+
+
             CreateHostBuilder(args).Build().Run();
         }
 

@@ -19,7 +19,15 @@ namespace Books.API.Services
 
         public async Task<Book> GetBookAsync(Guid id)
         {
+            //simando que la base de datos esta en otra maquina
+            await _context.Database.ExecuteSqlRawAsync("WAITFOR DELAY '00:00:02';");
             return await _context.Books.Include(b => b.Author).FirstOrDefaultAsync(b => b.Id == id);
+        }
+
+        public IEnumerable<Book> GetBooks()
+        {
+            _context.Database.ExecuteSqlRaw("WAITFOR DELAY '00:00:02';");
+            return _context.Books.Include(b => b.Author).ToList();
         }
 
         public async Task<IEnumerable<Book>> GetBooksAsync()
@@ -44,6 +52,13 @@ namespace Books.API.Services
                     _context = null;
                 }
             }
+        }
+
+
+
+        public Book GetBook(Guid id)
+        {
+            throw new NotImplementedException();
         }
     }
 }

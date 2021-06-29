@@ -31,6 +31,9 @@ namespace Books.API
             services.AddDbContext<BookContext>(options => 
                                                 options.UseSqlServer(Configuration.GetConnectionString("db")));
 
+            //registrando el automapper
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddScoped<IBookRepository, BookRepository>();
 
             services.AddControllers();
