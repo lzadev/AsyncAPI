@@ -35,6 +35,12 @@ namespace Books.API.Services
             return await _context.Books.Include(b => b.Author).ToListAsync();
         }
 
+        public async Task<IEnumerable<Book>> GetBooksAsync(IEnumerable<Guid> bookIds)
+        {
+            return await _context.Books.Where(b => bookIds.Contains(b.Id))
+                                        .Include(b => b.Author).ToListAsync();
+        }
+
         public void Dispose()
         {
             Dispose(true);
@@ -54,11 +60,26 @@ namespace Books.API.Services
             }
         }
 
-
-
         public Book GetBook(Guid id)
         {
             throw new NotImplementedException();
         }
+
+        public void AddBook(Book bookToAdd)
+        {
+            if(bookToAdd == null)
+            {
+                throw new ArgumentNullException(nameof(bookToAdd));
+            }
+
+            _context.Add(bookToAdd);
+        }
+
+        public async Task<bool> SaveChangesAsync()
+        {
+            return (await _context.SaveChangesAsync() > 0);
+        }
+
+
     }
 }

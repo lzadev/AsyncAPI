@@ -1,4 +1,5 @@
 using Books.API.Context;
+using Books.API.Extensions;
 using Books.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -46,6 +47,8 @@ namespace Books.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.ConfigureExceptionHnalder();
 
             app.UseHttpsRedirection();
 

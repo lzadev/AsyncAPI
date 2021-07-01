@@ -60,3 +60,4 @@ C:\Users\zabal\OneDrive\Escritorio\RestApi\Books.API\Books.API\obj\Debug\netcore
 C:\Users\zabal\OneDrive\Escritorio\RestApi\Books.API\Books.API\obj\Debug\netcoreapp3.1\Books.API.genruntimeconfig.cache
 C:\Users\zabal\OneDrive\Escritorio\RestApi\Books.API\Books.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\zabal\OneDrive\Escritorio\RestApi\Books.API\Books.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\zabal\OneDrive\Escritorio\RestApi\Books.API\Books.API\obj\Debug\netcoreapp3.1\Books.API.csproj.AssemblyReference.cache
